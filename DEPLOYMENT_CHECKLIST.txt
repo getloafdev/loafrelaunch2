@@ -1,0 +1,8 @@
+1. Upload this entire ZIP to the existing Netlify site. Never upload a partial patch.
+2. Hard-refresh desktop browsers. On iOS, close the tab and reopen it.
+3. Run one test order using a low-stock test SKU and confirm the order appears once in Dashboard > Orders.
+4. Retry the same request by double-clicking or refreshing confirmation. It must not create duplicate stock deductions.
+5. Test A4/A5, paper style, covers, cart scrolling and checkout on iPhone Safari and Android Chrome.
+6. Confirm /dashboard is not indexed and requires login.
+7. Confirm security headers using the browser Network panel or a header checker.
+8. Run npm install, npm run audit and npm test before production-domain launch.

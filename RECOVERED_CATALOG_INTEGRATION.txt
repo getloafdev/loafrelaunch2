@@ -1,0 +1,26 @@
+LOAF RECOVERED CATALOG INTEGRATION
+
+Source
+------
+The product families and prices were recovered from the old LOAF WooCommerce SQL database.
+
+Customer-facing catalog
+-----------------------
+Notebooks: 12 historical cover families, each in A4/A5 and Plain/Lined/Dotted.
+A5 notebook price: BDT 250
+A4 notebook price: BDT 300
+
+Sketchbooks: 12 historical LOAF products.
+A5 sketchbook price: BDT 250
+A4 sketchbook price: BDT 500
+
+Removed from the storefront
+----------------------------
+Invented placeholder names such as Banana Field, Violet Terrain, Jungle Cut, Glacier,
+Noir Wave, Coastline, Deep Dunes, Ember, Ink Depth and Peach Strata are no longer used.
+Placeholder records remain inactive in the database so old uploads are not destroyed.
+
+Inventory safety
+----------------
+Recovered products begin out of stock. Set the real stock quantity and enable Available
+to buy in Dashboard > Products before accepting orders.

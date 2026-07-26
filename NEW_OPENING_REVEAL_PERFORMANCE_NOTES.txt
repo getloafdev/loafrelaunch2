@@ -1,0 +1,33 @@
+LOAF OPENING REVEAL + MOBILE CENTERING + PERFORMANCE PASS
+
+Opening reveal
+- Removed all topographic, liquid and drip effects.
+- Added a short CRT power-on flick, central white point and beam.
+- The exact LOAF logo resolves with restrained red/yellow registration echoes.
+- Two minimal product silhouettes briefly frame the mark to signal notebooks and sketchbooks.
+- PICK YOUR LOAF appears as the invitation to explore.
+- The black screen splits open while the exact central logo moves into the actual upper-left header logo.
+
+Mobile homepage
+- Dedicated symmetrical three-card stack geometry.
+- Main card is mathematically centered.
+- Side cards balance evenly around it.
+- Labels and descriptions are centered under each stack.
+- Mobile stack auto-cycling is disabled to prevent visual drift and reduce work.
+
+Navigation
+- Added a persistent glass Back to wall control in the configurator.
+- Desktop label reveals on hover/focus.
+- Mobile uses a compact fixed arrow under the header.
+
+Copy
+- Replaced Build your LOAF with Pick your LOAF across the main site and SEO landing pages.
+
+Performance
+- Removed the heavy animated SVG relief system.
+- Intro uses transform, opacity and clip-path only.
+- Touch devices use native scrolling instead of Lenis.
+- Lenis remains enabled for fine-pointer desktop devices.
+- Reduced mobile backdrop blur and disabled unnecessary will-change promotion.
+- Corrected the LOAF logo preload MIME type.
+- Existing multi-image configurator, cart, checkout, dashboard and Supabase integration remain included.

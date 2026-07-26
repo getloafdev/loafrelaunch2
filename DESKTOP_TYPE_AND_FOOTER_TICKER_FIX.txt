@@ -1,0 +1,7 @@
+LOAF DESKTOP TYPOGRAPHY AND FOOTER TICKER FIX
+
+1. Removed mid-word breaking from the Paper for Thinking benefit cards.
+2. Added fluid desktop type sizing and a one-column fallback below 1180 px.
+3. Balanced the main heading and benefit grid for desktop browsers and 4K displays.
+4. Moved the scrolling product label into the footer markup.
+5. The ticker no longer uses fixed positioning and cannot follow the user on mobile or desktop.

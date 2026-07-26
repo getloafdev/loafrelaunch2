@@ -1,0 +1,9 @@
+LOAF PREMIUM ART-SHOP INTRO FIX
+
+- Uses the exact transparent LOAF PNG supplied by the owner.
+- The intro never changes to a transparent background during the header handoff.
+- The header and intro use the same physical image asset to prevent a visual swap.
+- Added a short poster-registration sequence with crop marks, grain, a yellow/red strike, chromatic logo ghosts and restrained editorial metadata.
+- Full sequence plays once per browser tab. Repeat loads use a quicker handoff.
+- Mobile removes nonessential metadata and keeps the same visual identity.
+- Reduced-motion users receive a static, accessible version.

@@ -1,0 +1,40 @@
+LOAF PRODUCTION READINESS RELEASE
+Generated: 2026-07-16
+
+COMPLETED LIVE IN SUPABASE
+- Row Level Security remains enabled on admin, catalog, media, inventory and order tables.
+- Anonymous write table privileges were revoked from site_products and site_media.
+- Order request keys and unique indexes were added.
+- Order IDs are unique.
+- Checkout validates names, phone, email, address, postcode, SKU and quantities server-side.
+- Duplicate SKU lines are rejected.
+- Orders are capped at 20 distinct lines, 50 total units and 250,000 BDT.
+- Orders from one phone number are limited to five per hour.
+- Inventory is locked and deducted atomically.
+- Existing checkout remains compatible while the canonical storefront now submits idempotency keys directly to the RPC.
+
+COMPLETED IN THIS RELEASE
+- One canonical full deployment package. Do not deploy partial patch ZIPs again.
+- Pinned Supabase JavaScript dependency.
+- Browser-generated idempotency key is retained across retries and cleared after success.
+- Customer/order values shown in cart and receipt are HTML escaped.
+- Dashboard automatically signs out after 30 minutes of inactivity.
+- Offline and restored-connection feedback added.
+- Security headers expanded.
+- Automated static audit script added.
+- Playwright desktop, Firefox, Safari, Android, iPhone, tablet and 1080p test scaffolding added.
+- Edge Function source and migration history are included under /supabase.
+
+MANUAL OWNER ACTIONS STILL REQUIRED
+1. Delete the obsolete send-receipts- Edge Function in Supabase.
+2. Revoke the previously exposed Resend API key and create a new restricted key.
+3. Verify loafbd.com in Resend before enabling transactional email.
+4. Enable MFA for the owner account in Supabase Auth.
+5. Add a second emergency owner account.
+6. Buy/connect the production domain and update canonical URLs after DNS is live.
+7. Add Cloudflare Turnstile after a production domain and Turnstile keys exist.
+8. Install test dependencies and run: npm install, npm run audit, npm test.
+9. Enable Supabase backups and a Netlify uptime monitor.
+
+IMPORTANT
+The active Content Security Policy still permits inline scripts and styles because the current storefront is monolithic. The next architecture release should extract inline JavaScript/CSS and remove unsafe-inline. This release improves safety without breaking the existing design.

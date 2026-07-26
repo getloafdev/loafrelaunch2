@@ -1,0 +1,439 @@
+LOAF RELAUNCH
+FULL SITE DESCRIPTION, FEATURE SET AND OPERATING NOTES
+Version: July 2026
+
+============================================================
+1. WHAT THIS SITE IS
+============================================================
+
+LOAF is a premium Bangladesh-made stationery storefront focused equally on heavyweight sketchbooks and 120 GSM notebooks. The site is designed as an editorial, highly visual shopping experience rather than a conventional product grid.
+
+Core brand position:
+- Human-made artwork only
+- No AI-generated cover artwork
+- Premium paper and practical A4/A5 formats
+- Sketchbooks for drawing, observation and visual exploration
+- Notebooks for planning, study, writing and business use
+- Made in Bangladesh
+- Established in 2020
+- Cash on delivery
+
+Primary technology:
+- Static HTML, CSS and JavaScript storefront
+- Netlify hosting and deployment
+- Supabase database, authentication and storage
+- Supabase Edge Function for server-validated checkout
+- Responsive WebP media delivery through Supabase CDN
+
+============================================================
+2. HOMEPAGE FEATURES
+============================================================
+
+Brand intro and motion:
+- LOAF logo intro with a safe text fallback while transparent assets decode
+- Scroll-driven dark-to-white glow statement:
+  LOG OFF.
+  TOUCH PAPER.
+  THE BEST NOTEBOOKS & SKETCHBOOKS IN BD. RIGHT HERE.
+- Glow reverses smoothly when the visitor scrolls upward
+- Reduced-motion visitors receive a complete static version
+- Mobile hero spacing is shortened so products arrive quickly after the statement
+
+Category presentation:
+- Sketchbooks are presented first because they are central to LOAF’s origin and identity
+- Notebooks and sketchbooks have separate homepage editorial image stacks
+- Homepage images are completely separate from configurator product images
+- Uploaded transparent artwork is shown without artificial spiral binding, mock frames or glass backgrounds
+- Homepage stacks support an open-ended number of managed images while showing a restrained rotating selection
+
+LOAF Out in the Wild:
+- Real-life product photography section with no public captions or numbering
+- Desktop shows exactly four restrained rectangular photo tiles
+- Small image collections remain centred and restrained instead of stretching across the screen
+- Only the first four published Wild photographs appear publicly
+- Portrait, square and landscape photographs are accommodated automatically
+- Mobile uses a simple horizontal swipe rail
+- Images reveal smoothly on scroll
+- Photos can be added, removed and reordered from the dashboard
+
+Editorial and trust content:
+- Made in Bangladesh and Established 2020 messaging
+- Separate notebook and sketchbook benefits
+- Collapsible “Are you a student?” section with equal paths for class notebooks and creative sketchbooks
+- Links to notebooks, sketchbooks, students and About LOAF pages
+- LOAF Manifesto on the About page
+
+============================================================
+3. PRODUCT CATALOG AND CONFIGURATOR
+============================================================
+
+Catalog structure:
+- 108 mapped catalog products from products_clean.csv
+- 96 notebook SKUs
+- 12 sketchbook SKUs
+- Notebook combinations cover:
+  - A4 and A5
+  - Plain, lined and dotted paper
+  - Multiple cover groups
+- Sketchbooks use A4 or A5 with plain heavyweight paper
+
+Naming model:
+- Customer-facing product name can be edited in the dashboard
+- Internal catalog name remains admin-only
+- Internal names are not shown in the storefront, cart, order summary or SEO metadata
+- SKU and mapped image filename remain attached to the internal catalog structure
+
+Configurator controls:
+- Category-specific product configurator
+- A4/A5 selection
+- Plain, lined and dotted selection for notebooks
+- Cover selection
+- Exact SKU, price, availability and stock resolution
+- Large product preview using exact uploaded product photography
+- No generated cover or spiral behind an uploaded exact SKU image
+- Multiple product views per SKU
+- Thumbnail rail for additional product photographs
+- Native, reliable click and touch controls across the complete button surface
+- Keyboard-compatible buttons
+- Accurate A4 and A5 preview proportions
+- Square 2000 x 2000 notebook paper reference displayed without cropping
+- Paper reference appears after the cover selector in the purchase flow
+
+Stock behaviour:
+- Zero stock blocks checkout automatically
+- “Available to buy” can be switched off without deleting the product
+- “Visible on website” can hide a product completely
+- Out-of-stock state is shown to visitors
+
+============================================================
+4. CART AND CHECKOUT
+============================================================
+
+Cart:
+- Add to cart from exact configured product variant
+- Quantity management
+- Remove items
+- Order total in BDT
+- Independent native cart scrolling on desktop and mobile
+- Mouse-wheel and touch scrolling supported
+- Background page remains locked while the cart is open
+
+Checkout:
+- Customer name
+- Phone
+- Email
+- Full delivery address
+- Postcode
+- Delivery zone
+- Cash on delivery workflow
+- Server-side price validation
+- Server-side stock validation
+- Atomic stock deduction
+- Order creation through a protected Supabase function
+- Checkout does not trust prices submitted by the browser
+
+Current checkout limitation:
+- Online card payment is not enabled
+- Email receipts require a verified sending domain and should not be treated as fully configured yet
+
+============================================================
+5. ADMIN DASHBOARD
+============================================================
+
+Authentication:
+- Approved administrator sign-in only
+- Supabase authentication
+- Row Level Security checks
+- Automatic access-token refresh before protected requests
+- One automatic retry after an expired JWT response
+- Login screen returns only when the refresh session itself has expired
+
+Home tab:
+- Product count
+- Managed image count
+- Order count
+- Ready-to-sell product count
+- Product attention count
+- Open order count
+- Task-based links to Orders, Products, Images, Security and How To
+
+Orders tab:
+- Newest orders first
+- Search by order number, customer, phone or email
+- Filter by status
+- Full customer and delivery details
+- Full item summary and total
+- Status workflow:
+  QUEUE
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+- Call-customer link
+- CSV export
+
+Products tab:
+- Search customer-facing name, internal name, SKU or mapped image filename
+- Filter notebooks, sketchbooks, out-of-stock and hidden products
+- Edit customer-facing name
+- View internal admin-only catalog name
+- Edit price
+- Edit physical stock
+- Edit description
+- Edit category, size and page style
+- Toggle purchasing availability
+- Toggle website visibility
+- Advanced SKU and cover-group controls
+- Duplicate SKU and exact variant checks
+- Website display position control
+- Product creation and deletion
+
+Images tab:
+- Guided three-step uploader:
+  1. Choose website area
+  2. Choose exact target
+  3. Preview and publish
+- Current and replacement previews
+- PNG, JPEG and WebP source support
+- Maximum source file size: 20 MB
+- Responsive WebP generation in the browser
+- Small, medium and large variants
+- Long-lived cached delivery URLs with content hashes
+- Image source dimension and file-size records
+- Add, replace, remove and reorder images
+
+Managed image locations:
+- Notebook homepage stack
+- Sketchbook homepage stack
+- Exact configurator product gallery
+- LOAF Out in the Wild
+- About LOAF gallery
+- Student and school gallery
+- Combined notebook page reference
+- Individual page close-up
+- A4/A5 size guide
+- Browser favicon
+
+Bulk product-image import:
+- Select or drag multiple product files together
+- Matches filenames case-insensitively
+- Matches mapped catalog image names or SKU codes
+- One source file can populate several SKUs when the catalog intentionally shares artwork
+- Generates responsive WebP variants once
+- Publishes matched SKU images sequentially
+- Displays successful, unmatched and failed results
+
+How To tab:
+- Plain-English task guide
+- Common workflows
+- What the dashboard can do
+- What the dashboard cannot do
+- Image preparation guidance
+- Troubleshooting
+- Safety notes for SKU, cover-group and deletion changes
+- Direct buttons to the relevant dashboard section
+
+Security tab:
+- Explains responsive cached images
+- Explains administrator-only editing
+- Explains practical limitations of browser image protection
+
+Dashboard quality-of-life behaviour:
+- Remembers the last open dashboard tab
+- Dedicated How To button in the top action area
+- Mobile-friendly horizontal navigation
+- Large touch targets
+- Responsive single-column forms on small screens
+- Clear success and error toasts
+- Guided image labels instead of technical storage paths
+
+============================================================
+6. MEDIA PERFORMANCE SYSTEM
+============================================================
+
+Recommended source sizes:
+- Product images: 1400 to 2200 px on the long edge
+- Homepage artwork: 1600 to 2400 px
+- Real-life photography: 1800 to 2800 px
+
+Publishing process:
+- The dashboard reads the source file
+- It produces responsive WebP sizes
+- It preserves transparent backgrounds when applicable
+- It creates hashed filenames
+- It uploads website delivery copies to Supabase Storage
+- The storefront uses srcset and sizes so devices request an appropriate file
+- Phones do not need to download the same large file as a 4K display
+
+Security and quality rule:
+- Keep master-quality photographs and artwork offline
+- The website should contain optimized delivery copies only
+- Any image displayed by a browser can ultimately be captured or screenshotted
+
+============================================================
+7. SUPPORTING PAGES
+============================================================
+
+Pages included:
+- Homepage
+- Notebooks landing page
+- Sketchbooks landing page
+- Student and school notebooks landing page
+- About LOAF page
+- Admin dashboard
+- 404 page
+
+About LOAF includes:
+- LOAF brand story
+- Human-made artwork position
+- LOAF Manifesto
+- 160 pages and 120 GSM product promise
+- “No stock images. No shortcuts.”
+- “Log off. Touch paper. Rise when ready.”
+
+============================================================
+8. SEO AND DISCOVERABILITY
+============================================================
+
+SEO features:
+- Unique page titles and descriptions
+- Canonical URLs targeting loafbd.com
+- Open Graph metadata
+- Twitter card metadata
+- Organization schema
+- Website schema
+- Online store schema
+- FAQ schema
+- Dynamic product schema
+- robots.txt
+- sitemap.xml
+- Search targeting for premium notebooks Bangladesh, sketchbooks Bangladesh, 120 GSM notebooks, A4, A5, plain, lined, dotted, students, cash on delivery and made in Bangladesh
+
+============================================================
+9. SECURITY MODEL
+============================================================
+
+Backend protections:
+- Supabase Row Level Security
+- Admin-only product, inventory, order and media changes
+- Admin-only Storage writes
+- Server-side checkout validation
+- Atomic stock changes
+- CSRF is not applicable to bearer-token Supabase API calls in the same way as a cookie-authenticated PHP form, but access tokens must still be protected
+- Admin session tokens are refreshed automatically
+
+Public media model:
+- Responsive optimized delivery copies use the public loaf-fast bucket for strong CDN caching
+- Original master files should not be uploaded
+- Hashed object paths reduce stale cache problems
+
+Known security limitation:
+- A visitor can capture an image once the browser displays it
+- Right-click blocking or hidden URLs cannot provide absolute protection
+
+============================================================
+10. WHAT REQUIRES A CODE DEPLOYMENT
+============================================================
+
+The dashboard cannot directly change:
+- Page layout
+- Website typography
+- Animation design
+- Marketing copy outside product descriptions
+- Navigation structure
+- Checkout fields
+- New database features
+- New website sections
+
+Those changes require editing the site files and deploying a new ZIP to Netlify.
+
+============================================================
+11. DEPLOYMENT AND MAINTENANCE
+============================================================
+
+Deployment:
+- Deploy the complete ZIP through the existing Netlify project’s Deploys page
+- Do not upload only index.html because the dashboard, routes, brand assets and configuration files are also required
+- After deployment, hard refresh desktop browsers when testing changed code
+- On iPhone, close and reopen the browser tab when Safari retains an old layout
+
+Routine operating sequence:
+1. Check Orders
+2. Confirm stock and product availability
+3. Upload or replace product images
+4. Check homepage and real-life galleries
+5. Open the storefront on desktop and mobile
+6. Test one product configuration and the cart
+7. Export orders periodically for backup
+
+============================================================
+12. IMPORTANT FILES IN THIS BUILD
+============================================================
+
+/index.html
+Main storefront and configurator.
+
+/dashboard/index.html
+Authenticated LOAF Control Room.
+
+/about/index.html
+About LOAF and manifesto.
+
+/notebooks/index.html
+Notebook search landing page.
+
+/sketchbooks/index.html
+Sketchbook search landing page.
+
+/school-notebooks/index.html
+Student-focused landing page.
+
+/catalog/products_clean.csv
+Mapped source product catalog.
+
+/IMAGE_WORKFLOW.md
+Image preparation and upload workflow.
+
+/LOAF_SITE_FEATURES_AND_OPERATIONS.txt
+This complete site and operations reference.
+
+/supabase/
+Database migration and setup references.
+
+============================================================
+END
+============================================================
+
+
+============================================================
+LATEST OPERATING NOTES: PASSWORDS AND ANIMATIONS
+============================================================
+
+CHANGE THE ADMINISTRATOR PASSWORD
+1. Sign in to the LOAF Control Room.
+2. Open the Security tab.
+3. Enter a unique password of at least 12 characters twice.
+4. Select Change password.
+5. Sign out and verify the new password before closing the current browser session.
+6. Never place the password inside HTML, JavaScript, documentation, screenshots or shared files.
+
+WHEN ANIMATIONS DO NOT APPEAR ON A WINDOWS PC
+1. Hard refresh the site with Ctrl + Shift + R.
+2. Check that the operating system is not configured to remove or reduce animations.
+3. In Chrome, Edge or Brave, turn graphics acceleration on in browser system settings and relaunch the browser.
+4. Temporarily disable extensions that modify motion, dark mode, CSS or page performance.
+5. Turn off battery saver or aggressive power-saving mode while testing.
+6. Test in an updated Chrome, Edge, Brave, Firefox or Safari browser.
+
+IPHONE, IPAD AND ANDROID
+1. Check Accessibility settings and turn off Reduce Motion or Remove animations when the full experience is desired.
+2. Close the browser tab completely after a new deployment and reopen the site.
+3. Keep the browser and operating system updated.
+4. The site deliberately shows simpler static states when the device requests reduced motion.
+
+LOAF OUT IN THE WILD
+- The public homepage displays a maximum of four photographs.
+- Desktop and tablet use a constrained two-by-two rectangle grid.
+- Mobile uses one horizontal swipe rail with scroll snapping.
+- Extra published photographs remain stored but are not displayed in this section until one of the first four is removed or reordered.

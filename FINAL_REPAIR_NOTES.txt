@@ -1,0 +1,14 @@
+LOAF COMPLETE REPAIR
+
+Included in this build:
+- Actual black-square white-outline favicon across browser tabs, bookmarks, iOS and Android install icons.
+- Exact transparent LOAF wordmark restored with correct proportions.
+- Refined centered glow reveal: LOG OFF, TOUCH PAPER, smaller brand statement, then RIGHT HERE one word at a time with stronger white illumination.
+- Touch devices show Swipe down; desktop shows Scroll down.
+- LOAF Out in the Wild is restricted to four rectangular tiles. Mobile uses a swipe rail.
+- The next section starts immediately with no dead vertical gap.
+- Configurator covers use full-surface pointer and touch handling with enlarged hit zones.
+- Paper for thinking, drawing, planning and making is constrained inside every viewport.
+- The student section is collapsed by default behind Are you a student? and a plus control.
+- Dashboard includes password changing, How To instructions and animation troubleshooting for Chrome, Edge, Brave, Safari, Android and iOS.
+- Reduced-motion accessibility remains supported.

@@ -1,0 +1,14 @@
+{
+  "name": "loaf-storefront",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve . -l 3000",
+    "test": "playwright test",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "audit": "python3 scripts/static_audit.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.52.0",
+    "serve": "14.2.4"
+  }
+}
